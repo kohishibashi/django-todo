@@ -3,8 +3,8 @@ from django.http import HttpResponse
 
 
 def home(request):
-    return HttpResponse('ほーむ')
+    return render(request, 'kiritan/top.html')
 
 
 def sub(request):
-    return HttpResponse('さぶぺーじ')
+    return render(request, 'kiritan/sub.html')
