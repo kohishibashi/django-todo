@@ -1,7 +1,14 @@
 {% extends 'kiritan/main.html' %}
 {% block content %}
 
-<p>とっぷぺーじ</p>
-<p>きりたん</p>
+<h2>とっぷぺーじ</h2>
+<p>きりたんのタスク</p>
+
+{% for task in tasks %}
+    <div>
+        <p>{{task}}</p>
+    </div>
+{% endfor %}
+
 
 {% endblock %}
