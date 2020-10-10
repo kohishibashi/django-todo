@@ -3,6 +3,11 @@
 
 <h2>とっぷぺーじ</h2>
 <p>きりたんのタスク</p>
+<form method="POST" action="/">
+    {% csrf_token %}
+    {{ form.title }}
+    <input type="submit" name="Task">
+</form>
 
 {% for task in tasks %}
     <div>
