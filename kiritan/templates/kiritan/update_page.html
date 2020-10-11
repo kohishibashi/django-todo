@@ -1,0 +1,12 @@
+{% extends 'kiritan/main.html' %}
+{% block content %}
+
+<h1>編集ページ</h1>
+
+<form method="POST" action="" class="form-inline">
+    {% csrf_token %}
+
+    {{form}}
+    <input type="submit" name="Update Task" class="form-control" value="更新">
+</form>
+{% endblock %}
