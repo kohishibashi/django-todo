@@ -43,3 +43,13 @@ def update(request, pk):
     }
 
     return render(request, 'kiritan/update_page.html', context)
+
+
+def delete(request, pk):
+    task = Task.objects.get(id=pk)
+    if request.method == 'POST':
+        task.delete()
+        return redirect('/')
+
+    context = {'task': task}
+    return render(request, 'kiritan/delete_page.html', context)
