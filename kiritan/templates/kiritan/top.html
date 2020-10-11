@@ -1,19 +1,43 @@
 {% extends 'kiritan/main.html' %}
 {% block content %}
 
-<h2>とっぷぺーじ</h2>
-<p>きりたんのタスク</p>
-<form method="POST" action="/">
-    {% csrf_token %}
-    {{ form.title }}
-    <input type="submit" name="Task">
-</form>
-
-{% for task in tasks %}
-    <div>
-        <p>{{task}}</p>
+<div class="kiritan-bg container-fluid">
+  <section>
+    <div class="row">
+      <div class="col-lg-9 col-sm-6 col-12 mt-3 mb-2">
+        <h4>やること一覧</h4>
+        <small>やらないといけない作業登録！</small>
+      </div>
+      <div class="col-lg-3 col-sm-6 col-12 mt-3 mb-2">
+        <form method="POST" action="/" class="form-inline">
+          {% csrf_token %}
+          {{ form.title }}
+          <input type="submit" name="Task" class="form-control" value="登録">
+        </form>
+      </div>
     </div>
-{% endfor %}
-
+    <div class="row">
+      {% for task in tasks %}
+      <div class="col-lg-3 col-sm-6 col-12 mb-2">
+        <div class="card">
+          <div class="card-content">
+            <div class="card-body">
+              <div class="media d-flex">
+                <div class="media-body text-left">
+                  <span>{{task}}</span>
+                </div>
+                <div class="media-body text-right">
+                  <span>編集</span>
+                  <span>削除</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+</div>
 
 {% endblock %}
